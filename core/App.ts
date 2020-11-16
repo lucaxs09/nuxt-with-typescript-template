@@ -12,6 +12,10 @@ class WebAppSingleton {
     }
   }
 
+  public  isDev():boolean{
+    const ENV_NAME = process.env.ENV_NAME || process.env.NODE_ENV || 'development';
+    return  ENV_NAME !== 'production';
+  }
 
   openNewWindow(url: string, title: string, options: SubWindowOptions) {
     let features: string[] = [];

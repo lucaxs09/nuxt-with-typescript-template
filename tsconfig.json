@@ -1,21 +1,19 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
+      "ESNext",
+      "ESNext.AsyncIterable",
+      "DOM"
     ],
     "esModuleInterop": true,
-    "experimentalDecorators": true,
     "allowJs": true,
     "sourceMap": true,
     "strict": false,
-    "noImplicitAny": false,
     "noEmit": true,
-    "skipLibCheck": true,
+    "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
       "~/*": [
@@ -26,11 +24,14 @@
       ]
     },
     "types": [
-      "~types/shims-vue.d.ts",
-      "@types/googlemaps",
-      "node_modules/element-ui/types",
+      "types",
       "@types/node",
-      "@nuxt/vue-app"
+      "@nuxt/types"
     ]
-  }
+  },
+  "exclude": [
+    "node_modules",
+    ".nuxt",
+    "dist"
+  ]
 }

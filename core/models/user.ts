@@ -1,8 +1,11 @@
+import {UserType} from "~/core/enums/UserType";
+
 export interface User {
   id?:number;
-  fullName?:string,
+  name?:string;
+  email?:string,
   username?:string;
-  password?:string;
-  email?:string;
 
+  rol?:UserType;
+  password?:string;
 }
