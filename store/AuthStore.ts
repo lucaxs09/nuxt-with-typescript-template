@@ -10,13 +10,8 @@ import {App} from "~/core/App";
 import {ApiResponse} from "~/core/api/ApiResponse";
 import {UserType} from "~/core/enums/UserType";
 
-
-
 const ST_TOKEN_KEY = 'user_token';
 const ST_USER_KEY = 'user';
-
-
-
 
 export enum LoginErrors {
   DATOS_INCORRECTOS,
@@ -65,7 +60,9 @@ class authStore extends VuexModule{
 
 
   get isAdmin():boolean{
-    return this.logged && this.user && this.user.rol === UserType.ADMIN;
+    return this.logged &&
+      this.user &&
+      this.user.rol === UserType.ADMIN;
   }
   get isRootUser():boolean{
     return this.logged && this.user && this.user.rol === UserType.ROOT;
@@ -92,8 +89,6 @@ class authStore extends VuexModule{
       try{
         const payload:TokenPayload = JwtDecode(token);
         // const decoded = jwtDecode<JwtPayload>(token); // Returns with the JwtPayload type
-        // TODO: aqui se debería validar el token con la public key
-
         if(payload){
           //guarda el user en json
           const userjson = sessionStorage.getItem(ST_USER_KEY);
@@ -110,6 +105,7 @@ class authStore extends VuexModule{
         console.warn('Token invalid');
       }
     }
+
     this.user = null;
     this.logged = false;
     this.userToken = null;

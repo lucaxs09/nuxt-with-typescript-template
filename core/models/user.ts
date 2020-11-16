@@ -8,4 +8,6 @@ export interface User {
 
   rol?:UserType;
   password?:string;
+
+
 }

@@ -60,7 +60,6 @@ export default function({ $axios, route, redirect }) {
       }
     }
 
-
     if(err.response.status === 401){
       // unauthorized--> checkSession
       AuthStore.checkLogin();
